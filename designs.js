@@ -12,6 +12,10 @@ var height = document.getElementById('inputHeight'),
 function makeGrid() {
   // Your code goes here!
    try {
+    var rows=document.getElementsByTagName('tr');
+    for(var c = 0 ; c < rows.length ; c++){
+      rows[c].remove();
+    }
     for( var h = 1 ; h <= height.value ; h++){
       var rowEl = table.insertRow();
       for(var w = 1 ; w <= width.value ; w++){
@@ -24,7 +28,6 @@ function makeGrid() {
         cell.style.backgroundColor =colorStyle.value;
       });
     });
-  
    } catch (error) {
      console.log(error);     
    }
