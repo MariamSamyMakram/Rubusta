@@ -2,11 +2,10 @@
 // Select size input
 var height = document.getElementById('inputHeight'),
     width = document.getElementById('inputWidth'),
-    color = document.getElementById('colorPicker'),
+    colorStyle = document.getElementById('colorPicker'),
     form = document.getElementById('sizePicker'),
     table = document.getElementById('pixelCanvas');
     
-
 // When size is submitted by the user, call makeGrid()
 
 
@@ -19,11 +18,18 @@ function makeGrid() {
         rowEl.insertCell().setAttribute("class","cell");   
       }
     }
-    var cell =document.getElementsByClassName('cell');
-    console.log(cell);
-    cell.addEventListener('click',function(){
-      alert('cell');
+    var cells =document.getElementsByClassName('cell');
+    Array.prototype.forEach.call(cells, function(cell) {
+      cell.addEventListener('click',function(){
+        cell.style.backgroundColor =colorStyle.value;
+      });
+
+      //change color cell to normal
+      cell.addEventListener('dblclick',function(){
+        cell.style.backgroundColor ='none';
+      });
     });
+  
    } catch (error) {
      console.log(error);     
    }
