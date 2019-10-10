@@ -23,11 +23,6 @@ function makeGrid() {
       cell.addEventListener('click',function(){
         cell.style.backgroundColor =colorStyle.value;
       });
-
-      //change color cell to normal
-      cell.addEventListener('dblclick',function(){
-        cell.style.backgroundColor ='none';
-      });
     });
   
    } catch (error) {
